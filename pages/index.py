@@ -50,8 +50,7 @@ column2 = html.Div([
         style={'width': '48%', 'display': 'inline-block'}),
 
     ])
-
-    dcc.Graph(id='indicator-graphic'),
+dcc.Graph(id='indicator-graphic'),
 
 layout = dbc.Row([column1, column2])
 
