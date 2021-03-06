@@ -4,6 +4,7 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
+import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 import plotly.express as px
 
@@ -30,25 +31,44 @@ column1 = dbc.Col(
     ],
     md=4,
 )
-html.Div([
+
+
+ao = pd.read_csv('https://raw.githubusercontent.com/peterger8y/Movie_money/main/ao')
+
+
+
+column2 = html.Div([
+ 
 
         html.Div([
             dcc.Dropdown(
-                id='xaxis-column',
+                id ='xaxis-column',
                 options=[{'label': i, 'value': i} for i in epsilon],
-                value='genres'
-            )
-        ]
+                value='popularity'
+            ),
+        ],
+        style={'width': '48%', 'display': 'inline-block'}),
 
-ao = pd.read_csv('
+    ])
 
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
-
-column2 = dbc.Col(
-    [
-        dcc.Graph(figure=fig),
-    ]
-)
+    dcc.Graph(id='indicator-graphic'),
 
 layout = dbc.Row([column1, column2])
+
+@app.callback(
+    Output('indicator-graphic', 'figure'),
+    Input('xaxis-column', 'value')
+
+def update_graph(xaxis_column_name):
+    dff = df[df['indicator'] == xaxis_column_name]
+
+    fig = px.scatter(x=dff['x_domain'],
+                     y=dff['x_domain'])
+    fig.add_trace(go.scatter(x=dff['x_domain'],
+                             y=dff['xgboost_pred'], ))
+
+     return fig
+
+
+if __name__ == '__main__':
+    app.run_server(debug=True
