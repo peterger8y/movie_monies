@@ -18,11 +18,12 @@ column1 = dbc.Col(
         
             ## Your Value Proposition
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+            Movie_monies provides potential revenue of bigger budget films, estimate the effects of any particular 
+            
+            feature on revenues. Adjust some features of an upcoming film production to see potential impacts on revenue.
+          
 
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+            
 
             """
         ),
