@@ -16,7 +16,7 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## Movies - getting a bang for your buck
 
             Movie_monies provides potential revenue of bigger budget films, estimate the effects of any particular 
             
