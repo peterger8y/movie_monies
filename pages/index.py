@@ -56,7 +56,7 @@ layout = dbc.Row([column1, column2])
 
 @app.callback(
     Output('indicator-graphic', 'figure'),
-    Input('xaxis-column', 'value')
+    Input('xaxis-column', 'value'))
 
 def update_graph(xaxis_column_name):
     dff = df[df['indicator'] == xaxis_column_name]
